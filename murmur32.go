@@ -2,31 +2,23 @@ package murmur3
 
 import (
 	"encoding/binary"
-	"fmt"
 	"math/bits"
 )
 
 func SumUint32(key []byte, seed uint32) uint32 {
-
 	hash := seed
 
 	ell := len(key)
 	for i := 0; i+4 <= ell; i += 4 {
 		k := binary.LittleEndian.Uint32(key[i:(i + 4)])
-		fmt.Println("k =", k)
 
 		k *= C1
-		//fmt.Println(k)
 		k = bits.RotateLeft32(k, R1)
-		//fmt.Println(k)
 		k *= C2
-		//fmt.Println(k)
 
 		hash ^= k
 		hash = bits.RotateLeft32(hash, R2)
 		hash = hash*M + N
-
-		//fmt.Println(hash)
 	}
 
 	var remaining uint32
