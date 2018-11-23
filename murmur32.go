@@ -5,6 +5,15 @@ import (
 	"math/bits"
 )
 
+func Sum32(data []byte, seed uint32) [4]byte {
+	hash := SumUint32(data, seed)
+
+	var out [4]byte
+	binary.LittleEndian.PutUint32(out[:], hash)
+
+	return out
+}
+
 func SumUint32(key []byte, seed uint32) uint32 {
 	hash := seed
 
@@ -39,11 +48,5 @@ func SumUint32(key []byte, seed uint32) uint32 {
 
 	hash ^= uint32(ell)
 
-	hash ^= (hash >> 16)
-	hash *= C3
-	hash ^= (hash >> 13)
-	hash *= C4
-	hash ^= (hash >> 16)
-
-	return hash
+	return FinalizeMix86(hash)
 }

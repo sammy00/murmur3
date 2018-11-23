@@ -148,8 +148,8 @@ func Sum128(data []byte, seed uint32) [16]byte {
 	h2, h3, h4 = h2+h1, h3+h1, h4+h1
 	//fmt.Println(h1, h2, h3, h4)
 
-	h1, h2 = finalizeMix(h1), finalizeMix(h2)
-	h3, h4 = finalizeMix(h3), finalizeMix(h4)
+	h1, h2 = murmur3.FinalizeMix86(h1), murmur3.FinalizeMix86(h2)
+	h3, h4 = murmur3.FinalizeMix86(h3), murmur3.FinalizeMix86(h4)
 	//fmt.Println(h1, h2, h3, h4)
 
 	h1 += h2 + h3 + h4
@@ -163,14 +163,4 @@ func Sum128(data []byte, seed uint32) [16]byte {
 	binary.LittleEndian.PutUint32(out[12:], h4)
 
 	return out
-}
-
-func finalizeMix(h uint32) uint32 {
-	h ^= h >> 16
-	h *= murmur3.C3
-	h ^= h >> 13
-	h *= murmur3.C4
-	h ^= h >> 16
-
-	return h
 }

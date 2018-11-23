@@ -10,8 +10,8 @@ const (
 	N  = 0xe6546b64
 
 	// extra constants
-	C3 = 0x85ebca6b
-	C4 = 0xc2b2ae35
+	D1 = 0x85ebca6b
+	D2 = 0xc2b2ae35
 )
 
 // constants enumeration for x64-128bit
