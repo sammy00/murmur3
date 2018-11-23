@@ -13,3 +13,25 @@ const (
 	C3 = 0x85ebca6b
 	C4 = 0xc2b2ae35
 )
+
+// constants enumeration for x64-128bit
+const (
+	CC1 uint64 = 0x87c37b91114253d5
+	CC2 uint64 = 0x4cf5ad432745937f
+
+	NN1 = 0x52dce729
+	NN2 = 0x38495ab5
+
+	DD1 uint64 = 0xff51afd7ed558ccd
+	DD2 uint64 = 0xc4ceb9fe1a85ec53
+)
+
+const (
+	RR11 = 31
+	RR12 = 33
+)
+
+const (
+	RR21 = 27
+	RR22 = 31
+)
