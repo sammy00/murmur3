@@ -20,59 +20,9 @@ func TestSum128(t *testing.T) {
 			expect: "5ed5d48a7161b84c9c3aa78e3e79b6cd",
 		},
 		{
-			data:   []byte("The quick brown fox jumps over the lazy cog"),
-			seed:   0x9747b28c,
-			expect: "0e8829ccf91081107c6f5ebf3433e188",
-		},
-		{
-			data:   []byte("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"),
-			seed:   0x9747b28c,
-			expect: "85c392715a1701c682dfbf4a14508190",
-		},
-		{
-			data:   []byte("THE QUICK BROWN FOX JUMPS OVER THE LAZY COG"),
-			seed:   0x9747b28c,
-			expect: "98bb1b3c95194f656e79de6d66243f09",
-		},
-		{
-			data:   []byte("the quick brown fox jumps over the lazy dog"),
-			seed:   0x9747b28c,
-			expect: "6ec157f6790f9bee9e2be436c509f88a",
-		},
-		{
-			data:   []byte("the quick brown fox jumps over the lazy cog"),
-			seed:   0x9747b28c,
-			expect: "ba7799e33bd19f1c3d49a292432788fe",
-		},
-		{
 			data:   []byte("The quick brown fox jumps over the lazy dog"),
-			seed:   0x0,
+			seed:   0x00000000,
 			expect: "c383152f672ceeec6cf67b5d2c1de9e5",
-		},
-		{
-			data:   []byte("The quick brown fox jumps over the lazy cog"),
-			seed:   0x0,
-			expect: "8843d60e79e79a3e934503972ff3b349",
-		},
-		{
-			data:   []byte("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"),
-			seed:   0x0,
-			expect: "5cb9e26451952b2fcc493cb9fed0b4c9",
-		},
-		{
-			data:   []byte("THE QUICK BROWN FOX JUMPS OVER THE LAZY COG"),
-			seed:   0x0,
-			expect: "484f7f9a1b2a6202c3ab64c4f4ddbbab",
-		},
-		{
-			data:   []byte("the quick brown fox jumps over the lazy dog"),
-			seed:   0x0,
-			expect: "fdb47daf02170d403f6093539b388af2",
-		},
-		{
-			data:   []byte("the quick brown fox jumps over the lazy cog"),
-			seed:   0x0,
-			expect: "fbf39633637c9e70efce1df157359e42",
 		},
 		{
 			data:   []byte("The quick brown fox jumps over the lazy dog"),
@@ -81,8 +31,28 @@ func TestSum128(t *testing.T) {
 		},
 		{
 			data:   []byte("The quick brown fox jumps over the lazy cog"),
+			seed:   0x9747b28c,
+			expect: "0e8829ccf91081107c6f5ebf3433e188",
+		},
+		{
+			data:   []byte("The quick brown fox jumps over the lazy cog"),
+			seed:   0x00000000,
+			expect: "8843d60e79e79a3e934503972ff3b349",
+		},
+		{
+			data:   []byte("The quick brown fox jumps over the lazy cog"),
 			seed:   0xc58f1a7b,
 			expect: "086525191fee0a51bcd01caaf5b988fd",
+		},
+		{
+			data:   []byte("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"),
+			seed:   0x9747b28c,
+			expect: "85c392715a1701c682dfbf4a14508190",
+		},
+		{
+			data:   []byte("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"),
+			seed:   0x00000000,
+			expect: "5cb9e26451952b2fcc493cb9fed0b4c9",
 		},
 		{
 			data:   []byte("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"),
@@ -91,8 +61,28 @@ func TestSum128(t *testing.T) {
 		},
 		{
 			data:   []byte("THE QUICK BROWN FOX JUMPS OVER THE LAZY COG"),
+			seed:   0x9747b28c,
+			expect: "98bb1b3c95194f656e79de6d66243f09",
+		},
+		{
+			data:   []byte("THE QUICK BROWN FOX JUMPS OVER THE LAZY COG"),
+			seed:   0x00000000,
+			expect: "484f7f9a1b2a6202c3ab64c4f4ddbbab",
+		},
+		{
+			data:   []byte("THE QUICK BROWN FOX JUMPS OVER THE LAZY COG"),
 			seed:   0xc58f1a7b,
 			expect: "1fc7b642b0ac04d7bb65238419cbc824",
+		},
+		{
+			data:   []byte("the quick brown fox jumps over the lazy dog"),
+			seed:   0x9747b28c,
+			expect: "6ec157f6790f9bee9e2be436c509f88a",
+		},
+		{
+			data:   []byte("the quick brown fox jumps over the lazy dog"),
+			seed:   0x00000000,
+			expect: "fdb47daf02170d403f6093539b388af2",
 		},
 		{
 			data:   []byte("the quick brown fox jumps over the lazy dog"),
@@ -101,8 +91,48 @@ func TestSum128(t *testing.T) {
 		},
 		{
 			data:   []byte("the quick brown fox jumps over the lazy cog"),
+			seed:   0x9747b28c,
+			expect: "ba7799e33bd19f1c3d49a292432788fe",
+		},
+		{
+			data:   []byte("the quick brown fox jumps over the lazy cog"),
+			seed:   0x00000000,
+			expect: "fbf39633637c9e70efce1df157359e42",
+		},
+		{
+			data:   []byte("the quick brown fox jumps over the lazy cog"),
 			seed:   0xc58f1a7b,
 			expect: "6c22b9aa4bba167c809d3e087b1b9d46",
+		},
+		{
+			data:   []byte("the quick brown fox jumps over the lazy cog zzz"),
+			seed:   0x9747b28c,
+			expect: "9ea9b5ecf4ed5909c42f75d68453b2f0",
+		},
+		{
+			data:   []byte("the quick brown fox jumps over the lazy cog zzz"),
+			seed:   0x00000000,
+			expect: "5dbd72f27885830455f63743a4f8176a",
+		},
+		{
+			data:   []byte("the quick brown fox jumps over the lazy cog zzz"),
+			seed:   0xc58f1a7b,
+			expect: "0f94f71bb0d8e2b3151dcd0d3e486569",
+		},
+		{
+			data:   []byte("the quick brown fox jumps over the lazy cog here"),
+			seed:   0x9747b28c,
+			expect: "610da5098e55674757026483312ecf2c",
+		},
+		{
+			data:   []byte("the quick brown fox jumps over the lazy cog here"),
+			seed:   0x00000000,
+			expect: "6f8336a5299675418b35a0604df82df2",
+		},
+		{
+			data:   []byte("the quick brown fox jumps over the lazy cog here"),
+			seed:   0xc58f1a7b,
+			expect: "9e5783f2eab707b787f0ee248e30a7ca",
 		},
 	}
 

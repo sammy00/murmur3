@@ -30,21 +30,23 @@ func SumUint32(key []byte, seed uint32) uint32 {
 		hash = hash*M + N
 	}
 
-	var remaining uint32
-	switch j := ell - ell%4; j {
-	case ell - 3:
-		remaining = uint32(key[j]) | (uint32(key[j+1]) << 8) |
-			(uint32(key[j+2]) << 16)
-	case ell - 2:
-		remaining = uint32(key[j]) | (uint32(key[j+1]) << 8)
-	case ell - 1:
-		remaining = uint32(key[j])
+	var k uint32
+	switch tail := key[ell-ell%4:]; len(tail) {
+	case 3:
+		k |= uint32(tail[2]) << 16
+		fallthrough
+	case 2:
+		k |= uint32(tail[1]) << 8
+		fallthrough
+	case 1:
+		k |= uint32(tail[0])
+		k *= C1
+		k = bits.RotateLeft32(k, R1)
+		k *= C2
+		fallthrough
 	default:
 	}
-	remaining *= C1
-	remaining = bits.RotateLeft32(remaining, R1)
-	remaining *= C2
-	hash ^= remaining
+	hash ^= k
 
 	hash ^= uint32(ell)
 
