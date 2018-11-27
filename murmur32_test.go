@@ -267,6 +267,77 @@ func TestSumUint32(t *testing.T) {
 			seed:   0xc58f1a7b,
 			expect: 0x2889f462,
 		},
+		// more test cases from btcsuite/btcutil/bloom.MurmurHash3
+		{
+			data:   []byte{},
+			seed:   0x00000000,
+			expect: 0x00000000,
+		},
+		{
+			data:   []byte{},
+			seed:   0xfba4c795,
+			expect: 0x6a396f08,
+		},
+		{
+			data:   []byte{},
+			seed:   0xffffffff,
+			expect: 0x81f16f39,
+		},
+		{
+			data:   []byte{0x00},
+			seed:   0x00000000,
+			expect: 0x514e28b7,
+		},
+		{
+			data:   []byte{0x00},
+			seed:   0xfba4c795,
+			expect: 0xea3f0b17,
+		},
+		{
+			data:   []byte{0xff},
+			seed:   0x00000000,
+			expect: 0xfd6cf10d,
+		},
+		{
+			data:   []byte{0x00, 0x11},
+			seed:   0x00000000,
+			expect: 0x16c6b7ab,
+		},
+		{
+			data:   []byte{0x00, 0x11, 0x22},
+			seed:   0x00000000,
+			expect: 0x8eb51c3d,
+		},
+		{
+			data:   []byte{0x00, 0x11, 0x22, 0x33},
+			seed:   0x00000000,
+			expect: 0xb4471bf8,
+		},
+		{
+			data:   []byte{0x00, 0x11, 0x22, 0x33, 0x44},
+			seed:   0x00000000,
+			expect: 0xe2301fa8,
+		},
+		{
+			data:   []byte{0x00, 0x11, 0x22, 0x33, 0x44, 0x55},
+			seed:   0x00000000,
+			expect: 0xfc2e4a15,
+		},
+		{
+			data:   []byte{0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66},
+			seed:   0x00000000,
+			expect: 0xb074502c,
+		},
+		{
+			data:   []byte{0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77},
+			seed:   0x00000000,
+			expect: 0x8034d2a0,
+		},
+		{
+			data:   []byte{0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88},
+			seed:   0x00000000,
+			expect: 0xb4698def,
+		},
 	}
 
 	/*
@@ -276,12 +347,11 @@ func TestSumUint32(t *testing.T) {
 	   	seed: 0x%08x,
 	   	expect: [4]byte{0x%02x, 0x%02x, 0x%02x, 0x%02x},
 	   },`*/
-	for i, c := range testCases {
+	for i, c := range testCases[24:] {
 		/* var out [4]byte
 		binary.LittleEndian.PutUint32(out[:], c.expect)
 		fmt.Printf(format, c.data, c.seed, out[0], out[1], out[2], out[3])
 		*/
-
 		if got := murmur3.SumUint32(c.data, c.seed); got != c.expect {
 			t.Fatalf("#%d invalid hash: got 0x%x, expect 0x%x", i, got, c.expect)
 		}

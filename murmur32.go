@@ -33,13 +33,13 @@ func SumUint32(key []byte, seed uint32) uint32 {
 	var k uint32
 	switch tail := key[ell-ell%4:]; len(tail) {
 	case 3:
-		k |= uint32(tail[2]) << 16
+		k ^= uint32(tail[2]) << 16
 		fallthrough
 	case 2:
-		k |= uint32(tail[1]) << 8
+		k ^= uint32(tail[1]) << 8
 		fallthrough
 	case 1:
-		k |= uint32(tail[0])
+		k ^= uint32(tail[0])
 		k *= C1
 		k = bits.RotateLeft32(k, R1)
 		k *= C2
