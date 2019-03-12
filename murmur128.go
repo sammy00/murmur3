@@ -5,6 +5,7 @@ import (
 	"math/bits"
 )
 
+// Sum128 calculates the MurmurHash3 sum of data
 func Sum128(data []byte, seed uint32) [16]byte {
 	ell := uint64(len(data))
 

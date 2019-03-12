@@ -1,4 +1,4 @@
-# MurMurHash3
+# MurmurHash3
 
 A Golang Implementation of MurmurHash3.
 
@@ -24,3 +24,4 @@ go get -u -v github.com/sammyne/murmur3
 ## References
 
 - [MurmurHash Wiki](https://en.wikipedia.org/wiki/MurmurHash)
+- [MurmurHash3](https://github.com/aappleby/smhasher/wiki/MurmurHash3#bulk-speed-test-hashing-an-8-byte-aligned-256k-block)

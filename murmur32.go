@@ -5,6 +5,8 @@ import (
 	"math/bits"
 )
 
+// Sum32 serves an alias as SumUint32 but with the hashed data encoded
+// as a 4-byte little-endian byte sequences
 func Sum32(data []byte, seed uint32) [4]byte {
 	hash := SumUint32(data, seed)
 
@@ -14,6 +16,16 @@ func Sum32(data []byte, seed uint32) [4]byte {
 	return out
 }
 
+// SumUint32 hashes the given 32-bit seed with the key block into a new
+// 32-bit integer, based on the snippet as
+//  key *= C1
+//  key = rotl(key, R1)
+//  key *= C2
+//
+//  hash ^= k
+//
+//  hash = rotl(hash, R1)
+//  hash = hash*M+N
 func SumUint32(key []byte, seed uint32) uint32 {
 	hash := seed
 

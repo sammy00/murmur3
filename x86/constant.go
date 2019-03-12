@@ -16,6 +16,7 @@ const (
 	NN4 = 0x32ac3b17
 )
 
+// offsets of rotation for key blocks
 const (
 	RR11 = iota + 15
 	RR12
@@ -23,6 +24,7 @@ const (
 	RR14
 )
 
+// offsets of rotation for hash blocks
 const (
 	RR21 = 19 - 2*iota
 	RR22
