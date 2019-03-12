@@ -7,6 +7,7 @@ import (
 	"github.com/sammyne/murmur3"
 )
 
+// Sum128 implements the 128-bit output version of MurmurHash3 in x86 arch
 func Sum128(data []byte, seed uint32) [16]byte {
 	ell := uint32(len(data))
 
