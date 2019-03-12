@@ -2,9 +2,9 @@
 
 A Golang Implementation of MurmurHash3.
 
-[![CircleCI](https://circleci.com/gh/sammy00/murmur3.svg?style=svg)](https://circleci.com/gh/sammy00/murmur3)
-[![codecov](https://codecov.io/gh/sammy00/murmur3/branch/master/graph/badge.svg)](https://codecov.io/gh/sammy00/murmur3)
-[![Go Report Card](https://goreportcard.com/badge/github.com/sammy00/murmur3)](https://goreportcard.com/report/github.com/sammy00/murmur3)
+[![CircleCI](https://circleci.com/gh/sammyne/murmur3.svg?style=svg)](https://circleci.com/gh/sammyne/murmur3)
+[![codecov](https://codecov.io/gh/sammyne/murmur3/branch/master/graph/badge.svg)](https://codecov.io/gh/sammyne/murmur3)
+[![Go Report Card](https://goreportcard.com/badge/github.com/sammyne/murmur3)](https://goreportcard.com/report/github.com/sammyne/murmur3)
 [![LICENSE](https://img.shields.io/badge/license-ISC-blue.svg)](LICENSE)
 
 ## Overview
@@ -18,7 +18,7 @@ Murmur3 is the 3rd version of MurmurHash by Austin Appleby. As described in wiki
 ## Installation
 
 ```bash
-go get -u -v github.com/sammy00/murmur3
+go get -u -v github.com/sammyne/murmur3
 ```
 
 ## References

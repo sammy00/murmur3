@@ -1,1 +1,1 @@
-module github.com/sammy00/murmur3
+module github.com/sammyne/murmur3

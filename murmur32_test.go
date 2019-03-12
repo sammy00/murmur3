@@ -3,7 +3,7 @@ package murmur3_test
 import (
 	"testing"
 
-	"github.com/sammy00/murmur3"
+	"github.com/sammyne/murmur3"
 )
 
 func TestSum32(t *testing.T) {

@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/sammy00/murmur3/x86"
+	"github.com/sammyne/murmur3/x86"
 )
 
 func TestSum128(t *testing.T) {

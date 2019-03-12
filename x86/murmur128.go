@@ -4,7 +4,7 @@ import (
 	"encoding/binary"
 	"math/bits"
 
-	"github.com/sammy00/murmur3"
+	"github.com/sammyne/murmur3"
 )
 
 func Sum128(data []byte, seed uint32) [16]byte {

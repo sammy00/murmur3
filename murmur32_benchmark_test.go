@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/sammy00/murmur3"
+	"github.com/sammyne/murmur3"
 )
 
 func BenchmarkSum32(b *testing.B) {
